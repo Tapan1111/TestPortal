@@ -1,0 +1,31 @@
+.full-width{
+    width: 100%;
+}
+
+/* Add this to your component's CSS file or styles.scss */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .custom-card {
+    width: 400px; /* Adjust as needed */
+    background-color: lightblue; /* Adjust as needed */
+    padding: 16px; /* Adjust as needed */
+    position: absolute;
+    bottom: 40%;
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .text-danger {
+    color: red;
+  }
+  
+  .d-none {
+    display: none;
+  }

@@ -1,0 +1,38 @@
+
+<table  class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Lot Number</th>
+      <th scope="col">Weight(g)</th>
+      <th scope="col">Qunatity(units)</th>
+      <th scope="col">TotalWeight</th>
+      <th scope="col">Action</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let n of product">
+      <td>{{n.id}}</td>
+      <td>{{n.name}}</td>
+      <td>{{n.lot_number}}</td>
+      <td>{{n.weight}}</td>
+      <td>{{n.quantity}}</td>
+      <td>{{n.totalWeight}}</td>
+      <td>
+
+          <button mat-icon-button color="warn" type="button" (click)="deleteItem({id: n.id})">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+          <!-- <button type="button" mat-flat-button color="warn" (click)="deleteUser({id: n.id})">Delete</button> -->
+      </td>
+     
+    </tr>
+  </tbody>
+</table>
+
+<button type="submit" class="btn btn-success" [routerLink]="['/addproduct']">Add</button>
+  
+  

@@ -1,0 +1,41 @@
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">userName</th>
+        <th scope="col">emailId</th>
+        <th scope="col">password</th>
+        <th scope="col">phone</th>
+        <th scope="col">address</th>
+        <th scope="col">role</th>
+        <th scope="col">department</th>
+        <th scope="col">Action</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let n of user">
+        <td>{{n.id}}</td>
+        <td>{{n.userName}}</td>
+        <td>{{n.emailId}}</td>
+        <td>{{n.password}}</td>
+        <td>{{n.phone}}</td>
+        <td>{{n.address}}</td>
+        <td>{{n.role}}</td>
+        <td>{{n.department}}</td>
+        <td>
+          <!-- <button mat-icon-button color="black" type="button" > -->
+            <!-- (click)="deleteItem()" -->
+            <!-- <mat-icon>edit</mat-icon> -->
+          <!-- </button> -->
+            <button mat-flat-button color="primary" (click)="updateEntries(n.id)" type="button"  >Edit</button>&nbsp;&nbsp;
+            <button type="button" mat-flat-button color="warn" (click)="deleteUser({id: n.id})">Delete</button>
+        </td>
+       
+      </tr>
+    </tbody>
+  </table>
+  
+  
+
+

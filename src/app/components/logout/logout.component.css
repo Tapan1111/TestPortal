@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    align-items:baseline;
+    margin-top: 10%;
+    justify-content: center;
+    
+    
+    height: 100vh;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 500px; /* Set a maximum width as needed */
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px;
+    transition: background-color 0.3s;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; 
+  }
+  
+  .card:hover {
+    background-color: rgb(179, 173, 173);
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  

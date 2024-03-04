@@ -1,0 +1,101 @@
+<div class="container">
+    <h2>Register Here</h2>
+    <form #Registerform="ngForm" (ngSubmit)="registerUser()">
+        <small class="text-danger">{{msg}}</small>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control"  placeholder="Enter email" name="email" [(ngModel)]="user.emailId" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel"
+        [class.is-invalid]="email.invalid && email.touched"
+        >
+       <small class="text-danger"[class.d-none]="email.valid || email.untouched">Email is required field</small> 
+      </div>
+      
+
+      <div class="form-group">
+        <label for="username">User Name:</label>
+        <input type="text" class="form-control"  placeholder="Enter username" name="username" [(ngModel)]="user.userName"  #username="ngModel" required
+        [class.is-invalid]="email.invalid && email.touched"
+        >
+       <small class="text-danger"[class.d-none]="email.valid || email.untouched">User Name is required field</small> 
+      </div>
+
+
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control"  placeholder="Enter password" name="password"[(ngModel)]="user.password" required #password="ngModel"
+        [class.is-invalid]="username.invalid && username.touched"
+        >
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched"> Enter valid password </small>
+      </div>
+
+      <div class="form-group">
+        <label for="pwd">Confirm Password:</label>
+        <input type="password" class="form-control"  placeholder="confirm password" name="cpassword" #cpassword = "ngModel" (ngModel)="user.password" required
+        [class.is-invalid]="cpassword.invalid && cpassword.touched">
+        <small class="text-danger" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched"> password and confirm password must be same </small>
+      </div>
+
+      <div class="form-group">
+        <label for="pwd">Phone:</label>
+        <input type="phone" class="form-control"  placeholder="Enter phone" name="phone"[(ngModel)]="user.phone" required  pattern="^[0-9]{10}$" #phone="ngModel"
+        [class.is-invalid]="phone.invalid && phone.touched"
+        >
+        <small class="text-danger" [class.d-none]="phone.valid || phone.untouched"> Enter valid phoneno </small>
+      </div>
+
+      <div class="form-group">
+        <label for="pwd">Address:</label>
+        <input  type="text" class="form-control"  placeholder="Enter address" name="address"[(ngModel)]="user.address" required #address="ngModel" >
+        <small class="text-danger" [class.d-none]="address.valid || address.untouched"> Enter valid address </small>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="pwd">Role:</label>&nbsp;&nbsp;
+        <select name="options" class="form-control" name="role" [(ngModel)]="user.role"  required #role="ngModel">
+            <option value="admin">admin</option>
+            <option value="employee">employee</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="pwd">Salary:</label>
+        <input  type="salary" class="form-control"  placeholder="Enter salary" name="salary"[(ngModel)]="user.salary" required #address="ngModel" >
+      </div>
+
+      <div class="form-group">
+        <label for="pwd">Age:</label>
+        <input  type=" number" class="form-control"  placeholder="Enter age" name="age"[(ngModel)]="user.age" required #address="ngModel" >
+      </div>
+
+      <div class="form-group">
+        <label for="pwd">AnnualSalary:</label>
+        <input  type="salary" class="form-control"  placeholder="Enter annualsalary" name="annualSalary"[(ngModel)]="user.annualSalary" required #address="ngModel" >
+      </div>
+
+      <div class="form-group">
+        <label for="pwd">DoB:</label>
+        <input  type="salary" class="form-control"  placeholder="Enter D.O.B" name="DoB"[(ngModel)]="user.DoB" required #address="ngModel" >
+      </div>
+
+      <br>
+      <div class="form-group">
+        <label for="pwd">Department:</label>
+        <select name="options" class="form-control" name="department" [(ngModel)]="user.department"  required #department="ngModel">
+          <option value="Store assistance">Store Assistance</option>
+          <option value="Jr.engineer">Jr.Engineer</option>
+          <option value="electrician">Electrician</option>
+          <option value="Officeboy">OfficeBoy</option>
+          <option value="supervisor">Supervisor</option>
+          <option value="hr">HR</option>
+          <option value="sales">Sales</option>
+          <option value="development">Development</option>
+        </select>
+      </div>
+      <br>
+
+      <button type="submit" class="btn btn-success">Register</button>
+      <button class="btn btn-success" style="float:right" [routerLink]="['/login']">go to login</button>
+    </form>
+    
+  </div>
+

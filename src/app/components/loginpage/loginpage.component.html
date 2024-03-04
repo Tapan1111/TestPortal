@@ -1,0 +1,54 @@
+<div class="bootstrap-wrapper" *ngIf="!isloggedIn">
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                    <img class="img-fluid" style="width: 100px;" src="assets/imageExim.png" alt="">
+
+                </div>
+                <h1 class="text-center">Login</h1>
+                <!-- creating forms -->
+
+                <form (ngSubmit)="onSubmit()">
+                    <small class="text-danger">{{msg}}</small>
+                    <mat-form-field class="full-width">
+                        <mat-label>EmailId</mat-label>
+                        <input type="email" name="EmailId" [(ngModel)]="user.emailId"  #EmailId="ngModel" matInput />
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>Password</mat-label>
+                        <input type="password" name="Password" [(ngModel)]="user.password" required #Password="ngModel" matInput />
+                    </mat-form-field>
+
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary">Login</button>
+                        <button style="margin-left: 10px;" type="submit" [routerLink]="['/dashboard']"  mat-raised-button color="accent">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>   
+</div>
+
+
+<div class="container" *ngIf="isloggedIn">
+    <form #loginform="ngForm" (ngSubmit)="enterUser()">
+
+        <div class="center-container">
+            <mat-card class="custom-card">
+              <mat-card-content>
+                <p style="text-align: center;">Access Pin</p>
+                <div class="form-group">
+                  <label for="otp">Enter Pin:</label>&nbsp;&nbsp;
+                  <input type="password" matInput placeholder="Enter OTP" name="otp" [(ngModel)]="user.otp" required #otp="ngModel"/>
+                  <small class="text-danger" [class.d-none]="otp.valid || otp.untouched">OTP is a required field</small>
+                </div>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-raised-button color="primary" [disabled]="otp.invalid">Submit</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+          
+    </form>
+</div>    
